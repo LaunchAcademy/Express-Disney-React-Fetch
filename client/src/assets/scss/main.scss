@@ -1,0 +1,61 @@
+@import "./foundation/settings";
+@import "~foundation-sites/scss/foundation";
+@include foundation-everything;
+// place global css here
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  background-color: lightblue;
+  padding: 20px;
+  margin: 20px;
+}
+
+input {
+  margin-left: 10px;
+}
+
+.border {
+  border: solid;
+  padding: 20px;
+}
+
+.button {
+  border: black solid 4px;
+  color: lime;
+}
+
+.app {
+  border: black solid 4px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.list {
+  border: solid 2px blue;
+  max-width: 600px;
+  padding: 15px;
+  margin: 20px;
+}
+
+.form {
+  border: solid 2px yellow;
+  max-width: 600px;
+  padding: 15px;
+  margin: 20px;
+}
+
+.tile {
+  border: solid 2px fuchsia;
+  max-width: 600px;
+  padding: 15px;
+  margin: 20px;
+}
