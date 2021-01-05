@@ -1,9 +1,11 @@
 import fs from "fs"
+import _ from "lodash"
 
 const moviesPath = "movies.json"
 
 class Movie {
-  constructor({title, releaseYear, runtime}) {
+  constructor({id, title, releaseYear, runtime}) {
+    this.id = id
     this.title = title
     this.releaseYear = releaseYear
     this.runtime = runtime
@@ -36,7 +38,7 @@ class Movie {
   }
 
   static getNextMovieId() {
-    const maxMovie = _.maxBy(this.findAll(), movie => movie.id)
+    const maxMovie = _.maxBy(this.findAll(), (movie) => movie.id)
     return maxMovie.id + 1
   }
 
