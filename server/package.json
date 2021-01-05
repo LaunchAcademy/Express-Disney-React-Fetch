@@ -3,7 +3,7 @@
     "start": "node src/app.js",
     "clean": "rm -rf ./public/dist",
     "dev": "yarn run clean && nodemon src/app.js",
-    "dev:debug": "nodemon --inspect-brk src/app.js",
+    "dev:debug": "nodemon --inspect src/app.js",
     "test": "jest",
     "ci": "jest --coverage",
     "generate-secret": "./scripts/generate-secret.js"
@@ -44,6 +44,7 @@
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
+    "lodash": "^4.17.20",
     "morgan": "^1.10.0"
   }
 }
