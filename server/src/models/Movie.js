@@ -4,12 +4,20 @@ import _ from "lodash"
 const moviesPath = "movies.json"
 
 class Movie {
-  constructor({id, title, releaseYear, runtime}) {
+  constructor({id, title, releaseYear, runtime}) {  
     this.id = id
     this.title = title
     this.releaseYear = releaseYear
     this.runtime = runtime
   }
+  // Added the `id` here to the constructor!
+  
+  // When we added a new movie and saw errors relating to the `id`, 
+    // it was because `getNextMovieId()` was looking through all the movies to find the greatest `id` value,
+    // but the `Movie` objects were created without an `id` because it was not in the constructor!
+  
+  // `Movie` objects without an `id` is also the reason for the `key` warning in the console
+    // The `Movie` objects did not have an `id` value that was trying to be used for the `key`
 
   static findAll() {
     const movieData = JSON.parse(fs.readFileSync(moviesPath)).movies
