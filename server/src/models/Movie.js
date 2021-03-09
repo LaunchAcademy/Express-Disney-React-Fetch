@@ -43,7 +43,7 @@ class Movie {
   }
 
   save() {
-    if(this.isValid()) {
+    if (this.isValid()) {
       delete this.errors
       this.id = this.constructor.getNextMovieId()
       const movies = this.constructor.findAll()

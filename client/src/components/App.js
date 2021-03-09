@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { hot } from "react-hot-loader/root"
 
 const App = (props) => {
-  const fetchMovies = async () => {
-    const response = await fetch("/api/v1/movies")
-    const responseBody = await response.json()
-  }
-
-  useEffect(() => {
-    fetchMovies()
-  }, [])
 
   return(
     <div className="app">
