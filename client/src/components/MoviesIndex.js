@@ -11,6 +11,7 @@ const MoviesIndex = (props) => {
       />
     )
   })
+  
   return(
     <ul className="list">
       {movies}
