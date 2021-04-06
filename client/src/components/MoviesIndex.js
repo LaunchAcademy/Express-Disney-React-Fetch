@@ -15,7 +15,7 @@ const MoviesIndex = (props) => {
     <ul className="list">
       {movies}
     </ul>
-  );
+  )
 }
 
 export default MoviesIndex;

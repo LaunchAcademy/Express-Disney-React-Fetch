@@ -10,7 +10,9 @@ moviesRouter.get("/", (req, res) => {
 })
 
 moviesRouter.post("/", (req, res) => {
+  // debugger
   const newMovie = new Movie(req.body.movie)
+  // debugger
 
   if (newMovie.save()) {
     res.status(201).json({ newMovie })
