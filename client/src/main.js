@@ -2,6 +2,8 @@ import React from "react"
 import { render } from "react-dom"
 
 import App from "./components/App"
+
+import Routes from "./components/Routes"
 import config from "./config"
 import RedBox from "redbox-react"
 
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (reactElement) {
     if (config.env === "development") {
       try {
-        render(<App />, reactElement)
+        render(<Routes />, reactElement)
       } catch (e) {
         render(<RedBox error={e} />, reactElement)
       }

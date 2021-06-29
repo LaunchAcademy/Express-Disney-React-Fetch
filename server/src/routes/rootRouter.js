@@ -6,6 +6,7 @@ import clientRouter from "./clientRouter.js"
 const rootRouter = new express.Router() 
 
 rootRouter.use("/api/v1/movies", moviesRouter)
+
 rootRouter.use("/", clientRouter)
 
 export default rootRouter

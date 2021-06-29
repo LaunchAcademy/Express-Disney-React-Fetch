@@ -8,9 +8,10 @@ const App = (props) => {
   const [moviesData, setMoviesData] = useState([])
   
   const fetchMovies = async () => {
-    const response = await fetch("/api/v1/movies")
-    const responseBody = await response.json()
-    setMoviesData(responseBody.movies)
+    const myMovieResponse = await fetch("/api/v1/movies")
+    const backendMoviesArray = await myMovieResponse.json()
+
+    setMoviesData(backendMoviesArray.movies)
   }
 
   useEffect(() => {
@@ -18,25 +19,17 @@ const App = (props) => {
   }, [])
 
   const addNewMovie = async (newMoviePayload) => {
-    // debugger
-    try {
-      const response = await fetch("/api/v1/movies", {
-        method: "POST",
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(newMoviePayload)
-      })
-      const responseBody = await response.json()
-      // debugger
-      const newMovie = responseBody.newMovie
-      setMoviesData([
-        ...moviesData,
-        newMovie
-      ])
-    } catch(err) {
-      console.error("something went wrong!")
-    }
+    const movieResponse = await fetch("/api/v1/movies", {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      }),
+      body: JSON.stringify(newMoviePayload)
+    })
+
+    const newMovieWithId = await movieResponse.json()
+
+    setMoviesData([...moviesData, newMovieWithId])
   }
 
   return(

@@ -7,40 +7,22 @@ const MovieForm = (props) => {
     runtime: ""
   })
 
+
   const handleChange = (event) => {
-    // debugger
-    setMovieRecord({
+    setMovieRecord({ 
       ...movieRecord,
       [event.currentTarget.name]: event.currentTarget.value
     })
   }
 
-  const clearForm = (event) => {
-    event.preventDefault()
-
-    setMovieRecord({
-      title: "",
-      releaseYear: "",
-      runtime: ""
-    })
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    
-    const formPayload = {
-      movie: {
-        title: movieRecord.title,
-        releaseYear: movieRecord.releaseYear,
-        runtime: movieRecord.runtime
-      }
+
+    const newPrettyMovie = {
+      movie: movieRecord
     }
-    props.addNewMovie(formPayload)
-    setMovieRecord({
-      title: "",
-      releaseYear: "",
-      runtime: ""
-    })    
+    
+    props.addNewMovie(newPrettyMovie)
   }
 
   return(
@@ -75,8 +57,7 @@ const MovieForm = (props) => {
         />
       </label>
 
-      <input type="submit" className="button" value="Add this Movie!" />
-      <button className="button" onClick={clearForm}>Clear</button>
+      <input type="submit" className="button" value="Add This Movie!" />
     </form>
   )
 }
