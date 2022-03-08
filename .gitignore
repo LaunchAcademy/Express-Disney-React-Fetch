@@ -14,8 +14,9 @@ Desktop.ini
 
 
 # npm
-**/node_modules
-**/package-lock.json
+node_modules/*
+yarn.lock
+client/public/bundle.js
 *.log
 *.gz
 

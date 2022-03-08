@@ -1,10 +1,10 @@
 import fs from "fs"
 import _ from "lodash"
 
-const moviesPath = "movies.json"
+const moviesPath = "server/src/data/movies.json"
 
 class Movie {
-  constructor({id, title, releaseYear, runtime}) {
+  constructor({ id, title, releaseYear, runtime }) {
     this.id = id
     this.title = title
     this.releaseYear = releaseYear
@@ -13,7 +13,7 @@ class Movie {
 
   static findAll() {
     const movieData = JSON.parse(fs.readFileSync(moviesPath)).movies
-    
+
     let movies = []
     movieData.forEach(movie => {
       const newMovie = new Movie(movie)
@@ -27,9 +27,9 @@ class Movie {
     const requiredFields = ["title"]
     let isValid = true
 
-    for(const requiredField of requiredFields) {
+    for (const requiredField of requiredFields) {
       this.errors[requiredField] = []
-      if(!this[requiredField]) {
+      if (!this[requiredField]) {
         isValid = false
         this.errors[requiredField].push("can't be blank")
       }
@@ -38,7 +38,7 @@ class Movie {
   }
 
   static getNextMovieId() {
-    const maxMovie = _.maxBy(this.findAll(), (movie) => movie.id)
+    const maxMovie = _.maxBy(this.findAll(), movie => movie.id)
     return maxMovie.id + 1
   }
 

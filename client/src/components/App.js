@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react"
 import { hot } from "react-hot-loader/root"
 
-const App = (props) => {
+import "../assets/scss/main.scss"
 
-  return(
+const App = props => {
+  return (
     <div className="app">
       <h1>My Favorite Disney Movies</h1>
     </div>
