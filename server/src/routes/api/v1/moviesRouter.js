@@ -10,6 +10,7 @@ moviesRouter.get("/", (req, res) => {
 })
 
 moviesRouter.post("/", (req, res) => {
+  console.log(req.body)
   const newMovie = new Movie(req.body.movie)
 
   if (newMovie.save()) {
