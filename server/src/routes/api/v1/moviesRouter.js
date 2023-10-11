@@ -6,14 +6,22 @@ import Movie from "../../../models/Movie.js"
 const moviesRouter = new express.Router()
 
 moviesRouter.get("/", (req, res) => {
-  res.status(200).json({ movies: Movie.findAll() })
+
+  // console.log("SECRET TUNNNELLL SECRET TUNNEELLL")
+  const arrayOfMovies = Movie.findAll()
+
+  res.status(200).json({ movies: arrayOfMovies })
 })
 
+
 moviesRouter.post("/", (req, res) => {
+
+  console.log(req.body)
+
   const newMovie = new Movie(req.body.movie)
 
   if (newMovie.save()) {
-    res.status(201).json({ newMovie })
+    res.status(201).json({ newMovie: newMovie })
   } else {
     res.status(422).json({ errors: newMovie.errors })
   }

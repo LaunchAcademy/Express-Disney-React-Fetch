@@ -2,7 +2,6 @@ import fs from "fs"
 import _ from "lodash"
 
 const moviesPath = "movies.json"
-
 class Movie {
   constructor({id, title, releaseYear, runtime}) {
     this.id = id
@@ -19,6 +18,7 @@ class Movie {
       const newMovie = new Movie(movie)
       movies.push(newMovie)
     })
+    
     return movies
   }
 
