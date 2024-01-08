@@ -1,8 +1,10 @@
 import React from 'react';
+
 import MovieTile from './MovieTile'
 
 const MoviesIndex = (props) => {
-
+  // debugger
+  
   const movies = props.movies.map((movie) => {
     return(
       <MovieTile
@@ -11,6 +13,7 @@ const MoviesIndex = (props) => {
       />
     )
   })
+
   return(
     <ul className="list">
       {movies}

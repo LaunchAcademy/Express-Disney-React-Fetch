@@ -10,10 +10,12 @@ moviesRouter.get("/", (req, res) => {
 })
 
 moviesRouter.post("/", (req, res) => {
+  console.log(req.body)
   const newMovie = new Movie(req.body.movie)
 
   if (newMovie.save()) {
-    res.status(201).json({ newMovie })
+    res.status(201).json({ newMovie: newMovie })
+    // res.status(201).json({ newMovie })
   } else {
     res.status(422).json({ errors: newMovie.errors })
   }
